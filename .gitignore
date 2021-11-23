@@ -1,3 +1,15 @@
+# My special
+**/*.user*
+**/*.autosave
+**/*.swp
+**/*-swp
+**/*.json
+**/*.deb
+# Folders
+**/.vs/*
+out/*
+**/bin/*
+
 # Prerequisites
 *.d
 
