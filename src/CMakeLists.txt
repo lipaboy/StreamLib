@@ -1,7 +1,6 @@
-#cmake_minimum_required(VERSION 2.8.2)
-project(Lipaboy_Library_Source)
+project(Stream_Library_Source)
 
-set(LIB_LIPABOY_LIB_SOURCE_FILES
+set(STREAM_LIB_SOURCE_FILES
 
     # Extra tools
     extra_tools/extra_tools.h
@@ -59,42 +58,13 @@ set(LIB_LIPABOY_LIB_SOURCE_FILES
     stream/fast_stream/operators/skip.h
     stream/fast_stream/operators/tools.h
     stream/fast_stream/operators/operators.h
-
 )
 
 # Declare the library
-add_library(LIPABOY_LIB INTERFACE ${LIB_LIPABOY_LIB_SOURCE_FILES})
-
-
-find_package(OpenMP)
-    if (OPENMP_FOUND)
-        set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
-    endif()
-
-	# BOOST library connection
-
-#if(WIN32)
-#	add_definitions( -DBOOST_ALL_DYN_LINK )  #If not VS will give linking errors of redefinitions
-#	set(Boost_USE_STATIC_LIBS OFF )
-#	set(Boost_USE_MULTITHREADED ON)
-#	set(Boost_USE_STATIC_RUNTIME OFF)
-#    find_package(Boost COMPONENTS thread chrono regex REQUIRED )
-#
-#    INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
-#endif(WIN32)
-
-#if(WIN32)
-#    TARGET_LINK_LIBRARIES( LIPABOY_LIB ${Boost_LIBRARIES} )
-#endif(WIN32)
-
+add_library(STREAM_LIB INTERFACE ${STREAM_LIB_SOURCE_FILES})
 
 # Specify here the include directories exported
 # by this library
-target_include_directories(LIPABOY_LIB INTERFACE
+target_include_directories(STREAM_LIB INTERFACE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
-
-set_directory_properties(PROPERTIES COMPILE_DEFINITIONS_DEBUG "_DEBUG")
-
-
